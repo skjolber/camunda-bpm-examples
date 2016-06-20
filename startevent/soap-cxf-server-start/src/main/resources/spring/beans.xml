@@ -20,10 +20,14 @@
 
 	<context:property-placeholder location="classpath:spring/service.properties" ignore-unresolvable="false"/>
 
-	<context:component-scan base-package="com.camunda.bpm.example.spring.soap"/>
+	<context:property-placeholder location="classpath:properties/secrets.properties" ignore-unresolvable="false"/>
+
+	<context:component-scan base-package="com.camunda.bpm.example.spring.soap.start"/>
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+      		
+    <bean id="bankHeaderInterceptor" class="com.camunda.bpm.example.spring.soap.start.security.BankHeaderInterceptor"/>
       		
 	<bean class="org.apache.cxf.interceptor.LoggingInInterceptor" id="logInInterceptor">
 		<property name="prettyLogging" value="true" />
@@ -33,7 +37,7 @@
 		<property name="prettyLogging" value="true" />
 	</bean>
 	
-	<bean id="authenticationFailedEntryPoint" class="com.camunda.bpm.example.spring.soap.AuthenticationFailedEntryPoint">
+	<bean id="authenticationFailedEntryPoint" class="com.camunda.bpm.example.spring.soap.start.security.AuthenticationFailedEntryPoint">
 		<property name="realmName" value="example" />
 	</bean>
 	
@@ -49,20 +53,21 @@
         </security:authentication-provider>
     </security:authentication-manager>	
 	
-	<bean id="bankCustomerServiceBean" class="com.camunda.bpm.example.spring.soap.BankCustomerService" />
+	<bean id="bankAccountServiceBean" class="com.camunda.bpm.example.spring.soap.start.BankAccountService" />
 	
 	<jaxws:endpoint
-		id="bankCustomerService" 
-		implementor="#bankCustomerServiceBean" 
-		address="${bankcustomer.service.server}" 
-		wsdlLocation="classpath:wsdl/BankCustomerService.wsdl"
-		serviceName="s:BankCustomerService"
-		xmlns:s="http://soap.spring.example.bpm.camunda.com/v1"
-		endpointName="s:BankCustomerServicePort"
+		id="bankAccountService" 
+		implementor="#bankAccountServiceBean" 
+		address="${bankaccount.service.server}" 
+		wsdlLocation="classpath:wsdl/BankAccountService.wsdl"
+		serviceName="s:BankAccountService"
+		xmlns:s="http://start.soap.spring.example.bpm.camunda.com/v1"
+		endpointName="s:BankAccountServicePort"
 		>
 
 		<jaxws:inInterceptors>
 			<ref bean="logInInterceptor" />
+			<ref bean="bankHeaderInterceptor" />
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<ref bean="logOutInterceptor" />

@@ -5,7 +5,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd                         
         ">
         
-	<bean id="bankCustomerServiceApplication1" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
+	<bean id="bankAccountServiceApplication1" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
 
 	<import resource="classpath:spring/engine.xml" />
 	

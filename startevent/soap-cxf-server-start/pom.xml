@@ -12,7 +12,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<camunda.version>7.4.0</camunda.version>
+		<camunda.version>7.5.0</camunda.version>
 		<cxf.version>2.7.15</cxf.version>
 		<cxf.xjc.version>2.7.0</cxf.xjc.version>
 		<cglib.version>2.2</cglib.version>
@@ -233,9 +233,6 @@
 				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
-				<directory>${project.build.directory}/webapp</directory>
-			</resource>
-			<resource>
 				<directory>${project.build.directory}/generated-resources</directory>
 			</resource>
 		</resources>
@@ -250,31 +247,7 @@
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 				</configuration>
 			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.7</version>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<!-- here the phase you need -->
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/webapp</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/webapp</directory>
-									<filtering>true</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-
+			
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
@@ -287,8 +260,8 @@
 							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/BankCustomerService.wsdl</wsdl>
-									<wsdlLocation>classpath:wsdl/BankCustomerService.wsdl</wsdlLocation>
+									<wsdl>${basedir}/src/main/resources/wsdl/BankAccountService.wsdl</wsdl>
+									<wsdlLocation>classpath:wsdl/BankAccountService.wsdl</wsdlLocation>
 									<bindingFiles>
 										<bindingFile>${basedir}/src/test/resources/bindings.xml</bindingFile>
 									</bindingFiles>

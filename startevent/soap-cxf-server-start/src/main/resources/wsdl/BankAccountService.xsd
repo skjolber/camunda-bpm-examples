@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://soap.spring.example.bpm.camunda.com/v1"
-	xmlns:tns="http://soap.spring.example.bpm.camunda.com/v1" elementFormDefault="qualified">
+	targetNamespace="http://start.soap.spring.example.bpm.camunda.com/v1"
+	xmlns:tns="http://start.soap.spring.example.bpm.camunda.com/v1" elementFormDefault="qualified">
 
 	<annotation>
 		<documentation>Example of web service</documentation>
 	</annotation>
 
-	<element name="setAccountRequest">
+	<element name="setAccountNameRequest">
 		<complexType>
 			<sequence>
-				<element name="customerNumber" type="string">
-                    <annotation>
-                        <documentation>
-                            Bank customer identifier
-                        </documentation>
-                    </annotation>				
-				</element>
 				<element name="accountNumber" type="string">
                     <annotation>
                         <documentation>
@@ -27,7 +20,7 @@
 				<element name="accountName" type="string">
                     <annotation>
                         <documentation>
-                            Account name
+                            Account name to set
                         </documentation>
                     </annotation>				
 				</element>
@@ -35,7 +28,7 @@
 		</complexType>
 	</element>
 
-	<element name="setAccountResponse">
+	<element name="setAccountNameResponse">
 		<complexType>
 			<sequence>
 				<element name="status" type="tns:statusType" >
@@ -49,40 +42,51 @@
 		</complexType>
 	</element>
 
-    <element name="bankException" >
+    <element name="invalidValueException" >
+        <annotation>
+            <documentation>Invalid value</documentation>
+        </annotation>
         <complexType>
             <sequence>
-                <element name="code" type="string"/>
+                <element name="name" type="string">
+					<annotation>
+						<documentation>Name of offending field</documentation>
+					</annotation>
+                </element>
                 <element name="message" type="string"/>
             </sequence>
         </complexType>
     </element>
+    
+	<element name="bankRequestHeader">
+		<complexType>
+			<sequence>
+				<element name="secret" type="string">
+                    <annotation>
+                        <documentation>
+                            Secret token 
+                        </documentation>
+                    </annotation>				
+				</element>
+			</sequence>
+		</complexType>
+	</element>    
 
     <simpleType name="statusType">
         <annotation>
-            <documentation>Status that can be handled by the user.</documentation>
+            <documentation>Request status.</documentation>
         </annotation>
         <restriction base="string">
-            <enumeration value="ok">
+            <enumeration value="success">
                 <annotation>
-                    <documentation>
-                    </documentation>
+                    <documentation>Name was successfully set</documentation>
                 </annotation>
             </enumeration>
-            <enumeration value="processNotFound">
+            <enumeration value="failure">
                 <annotation>
-                    <documentation>
-                    </documentation>
+                    <documentation>Failed to set name</documentation>
                 </annotation>
             </enumeration>
-            
-            <enumeration value="invalidFormValues">
-                <annotation>
-                    <documentation>
-                    </documentation>
-                </annotation>
-            </enumeration>
-            
         </restriction>
     </simpleType>	
 

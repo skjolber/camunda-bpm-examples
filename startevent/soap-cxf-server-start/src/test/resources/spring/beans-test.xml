@@ -16,8 +16,8 @@
 
 	<!-- SOAP client for testing -->
 	<jaxws:client 
-		serviceClass="com.camunda.bpm.example.spring.soap.v1.BankCustomerServicePortType" 
-		address="${bankcustomer.service.client}" id="bankCustomerServiceClient">	
+		serviceClass="com.camunda.bpm.example.spring.soap.start.v1.BankAccountServicePortType" 
+		address="${bankaccount.service.client}" id="bankAccountServiceClient">	
 		
 		<jaxws:inInterceptors>
 			<ref bean="logInInterceptor" />

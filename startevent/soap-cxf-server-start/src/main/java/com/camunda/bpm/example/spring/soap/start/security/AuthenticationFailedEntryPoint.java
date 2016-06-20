@@ -1,4 +1,4 @@
-package com.camunda.bpm.example.spring.soap;
+package com.camunda.bpm.example.spring.soap.start.security;
 
 import java.io.IOException;
 
