@@ -18,6 +18,7 @@
     <module>deployment/spring-jboss-non-pa</module>
     <module>deployment/embedded-spring-rest</module>
     <module>deployment/ejb-pa</module>
+    <module>deployment/spring-boot</module>
 <!--     <module>modeler/custom-task-simple</module> -->
 <!--     <module>modeler/custom-task-advanced</module> -->
     <module>multi-tenancy/schema-isolation</module>
@@ -34,7 +35,8 @@
     <module>servicetask/rest-service</module>
     <module>servicetask/soap-service</module>
     <module>servicetask/soap-cxf-service</module>
-    <module>spin/dataformat-configuration</module>
+    <module>spin/dataformat-configuration-global</module>
+    <module>spin/dataformat-configuration-in-process-application</module>
     <module>startevent/message-start</module>
     <module>usertask/task-form-embedded</module>
     <module>usertask/task-form-embedded-serialized-java-object</module>

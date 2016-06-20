@@ -8,6 +8,8 @@ Camunda BPM examples is a collection of focused usage examples for the [camunda 
 | Camunda Version  | Link                                                                | Checkout command      |
 | -----------------|---------------------------------------------------------------------|-----------------------|
 | Latest           | [Master branch](https://github.com/camunda/camunda-bpm-examples)    | `git checkout master` |
+| 7.5              | [7.5 tag](https://github.com/camunda/camunda-bpm-examples/tree/7.5) | `git checkout 7.5`    |
+| 7.4              | [7.4 tag](https://github.com/camunda/camunda-bpm-examples/tree/7.4) | `git checkout 7.4`    |
 | 7.3              | [7.3 tag](https://github.com/camunda/camunda-bpm-examples/tree/7.3) | `git checkout 7.3`    |
 | 7.2              | [7.2 tag](https://github.com/camunda/camunda-bpm-examples/tree/7.2) | `git checkout 7.2`    |
 | 7.1              | [7.1 tag](https://github.com/camunda/camunda-bpm-examples/tree/7.1) | `git checkout 7.1`    |
@@ -28,6 +30,7 @@ If you clone this repository, use the checkout commands to access the sources fo
 * [Multi-Tenancy](#multi-tenancy-examples)
 * [Spin](#spin-examples)
 * [DMN](#dmn-examples)
+* [Process Instance Migration](#process-instance-migration-examples)
 
 ### Getting Started with camunda BPM
 
@@ -49,9 +52,11 @@ If you clone this repository, use the checkout commands to access the sources fo
 | [User Task Assignment Email](/usertask/task-assignment-email) *            | All                  | Email, Usertask           |
 | [User Task Form Embedded](/usertask/task-form-embedded) *                  | All                  | Html, Form, Usertask      |
 | [User Task Form Embedded - Serialized Java Object](/usertask/task-form-embedded-serialized-java-object) *                  | All                  | Html, Form, Usertask      |
+| [User Task Form Embedded - JSON](/usertask/task-form-embedded-json) *      | All                  | Html, Form, Usertask      |
 | [User Task Form Generated](/usertask/task-form-generated) *                | All                  | Html, Form, Usertask      |
 | [User Task Form JSF](/usertask/task-form-external-jsf) *                   | JavaEE Containers    | JSF, Form, Usertask       |
 | [Script Task XSLT](/scripttask/xslt-scripttask)                            | Unit Test            | XSLT Scripttask           |
+| [Script Task XQuery](/scripttask/xquery-scripttask)                        | Unit Test            | XQuery Scripttask         |
 | [Start Event - Message](/startevent/message-start)                         | Unit Test            | Message Start Event       |
 
 (\*) _complete demo applications_.
@@ -65,6 +70,7 @@ If you clone this repository, use the checkout commands to access the sources fo
 | [Process Application - Spring Servlet](deployment/spring-servlet-pa-jboss) | JBoss AS 7           | Spring, Servlet, War      |
 | [Embedded Spring with embedded REST](deployment/embedded-spring-rest)      | vanilla Apache Tomcat | Spring, Rest, Embedded   |
 | [Plain Spring Webapplication JBoss AS 7](deployment/spring-jboss-non-pa)   | JBoss AS 7           | Spring, Jndi, War         |
+| [Process Application - Spring Boot](deployment/spring-boot)                | Spring Boot          | Spring                    |
 
 
 ### Process Engine Plugin Examples
@@ -95,13 +101,14 @@ If you clone this repository, use the checkout commands to access the sources fo
 | ---------------------------------------------------------------------------|---------------------------|
 | [Cockpit Sample Plugin](/cockpit/cockpit-sample-plugin)                    | Plugin                    |
 | [Failed Jobs Plugin](/cockpit/cockpit-failed-jobs-plugin)                  | Plugin                    |
+| [Javascript Only Plugin](/cockpit/js-only-plugin)                          | Plugin, Custom Script     |
 
 ### Tasklist Examples
 
 | Name                                                                       | Keywords                  |
 | ---------------------------------------------------------------------------|---------------------------|
-| [Create Standalone Task - client side](https://github.com/camunda/camunda-bpm-webapp/tree/master/webapp/src/main/resources-plugin/standaloneTask/app)                    | Plugin                    |
-| [Create Standalone Task - server side](https://github.com/camunda/camunda-bpm-webapp/tree/master/webapp/src/main/java/org/camunda/bpm/tasklist/impl/plugin/standalonetask)                  | Plugin                    |
+| [Create Standalone Task - client side](https://github.com/camunda/camunda-bpm-webapp/tree/master/ui/tasklist/plugins/standaloneTask/app)| Plugin                    |
+| [Create Standalone Task - server side](https://github.com/camunda/camunda-bpm-webapp/blob/master/src/main/java/org/camunda/bpm/tasklist/impl/plugin)| Plugin                    |
 
 ### SDK-JS Examples
 
@@ -143,13 +150,22 @@ If you clone this repository, use the checkout commands to access the sources fo
 
 | Name                                                                                       | Container                                  | Keywords                |
 | -------------------------------------------------------------------------------------------|--------------------------------------------|-------------------------|
-| [Data Format Configuration to Customize JSON serialization](spin/dataformat-configuration) | Unit Test / Glassfish, WebLogic, Websphere | Spin, Process Variables |
+| [Global Data Format Configuration to Customize JSON serialization](spin/dataformat-configuration-global) | Unit Test  | Spin, Configuration |
+| [Process-Application-Specific Data Format Configuration to Customize JSON serialization](spin/dataformat-configuration-in-process-application) | Application Server | Spin, Configuration, Shared Engine |
 
 ### DMN Examples
 
 | Name                                                                                       | Container | Keywords                |
 | -------------------------------------------------------------------------------------------|-----------|-------------------------|
 | [Embed Decision Engine - Dish Decision Maker](dmn-engine/dmn-engine-java-main-method)      | Jar       | DMN, Embed              |
+
+
+### Process Instance Migration Examples
+
+| Name                                                                                         | Container                             | Keywords                |
+| ---------------------------------------------------------------------------------------------|---------------------------------------|-------------------------|
+| [Migration on Deployment of New Process Version](migration/migrate-on-deployment)            | Application Server with Shared Engine | BPMN, Migration         |
+
 
 
 ### Contribute!
