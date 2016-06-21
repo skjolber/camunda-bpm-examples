@@ -23,7 +23,7 @@ The webservice context is loaded from [beans.xml][beans], including two services
  * `BankService` - spring service, performing some logging. i.e. dummy service.
  
 The `BankAccountService` endpoint is secured in two ways
- * Basic Auth
+ * Basic Authentication
  * SOAP header containing secret value
  
 The BPMN 2.0 process is started with two variables: 
@@ -37,7 +37,7 @@ The SOAP request consists of a `SetAccountNameRequest` body and `BankRequestHead
 As the process service task executes, it invokes `setAccountName(..)` on the `BankService` Spring service, performing a logging statement.
 
 
-## Error handling (SOAP Faults)
+## Form validation exceptions handling via SOAP Faults
 The `BankAccountService` service translates start node form validation exceptions to SOAP faults. The SOAP fault contains information on which field failed to validate. 
 
 # How to use it?
