@@ -2,10 +2,6 @@ package com.camunda.bpm.example.spring.soap.start;
 
 import static org.hamcrest.Matchers.is;
 
-import org.camunda.bpm.engine.HistoryService;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.RuntimeService;
-import org.camunda.bpm.engine.TaskService;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,7 +22,7 @@ import com.camunda.bpm.example.spring.soap.start.v1.SetAccountNameResponse;
 import com.camunda.bpm.example.spring.soap.start.v1.StatusType;
 /**
  * 
- * Test process
+ * Test various SOAP calls
  * 
  */
 
@@ -37,18 +33,6 @@ public class BankAccountProcessTest {
 
   @Rule
   public ExpectedException exception = ExpectedException.none();
-
-  @Autowired
-  private RuntimeService runtimeService;
-
-  @Autowired
-  private TaskService taskService;
-
-  @Autowired
-  private HistoryService historyService;
-
-  @Autowired
-  private ProcessEngine processEngine;
 
   @Value("secret")
   private String secret;

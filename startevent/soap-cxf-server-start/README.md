@@ -1,10 +1,10 @@
-SOAP server CXF example
+SOAP CXF server start process example 
 ===============================================================
 This example demonstrates how to start a process via a SOAP webservice-server generated using CXF in a Spring application.
 
 ![Example Process][png]
 
-The example BPMN 2.0 process is triggered by a SOAP call. The SOAP service starts the process itself by submitting a start form.
+The example BPMN 2.0 process is triggered by a SOAP call. The SOAP service starts the process by submitting a start form.
 
 # Overview
 
@@ -23,7 +23,7 @@ The webservice context is loaded from [beans.xml][beans], including two services
  * `BankService` - spring service, performing some logging. i.e. dummy service.
  
 The `BankAccountService` endpoint is secured in two ways
- * Basic Auth ('user'/'password')
+ * Basic Auth
  * SOAP header containing secret value
  
 The BPMN 2.0 process is started with two variables: 
