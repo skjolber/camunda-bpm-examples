@@ -31,8 +31,10 @@ public class BankHeaderInterceptor extends AbstractSoapInterceptor {
     
     String headerSecret = getSecret(soapMessage);
     if(headerSecret == null || !headerSecret.equals(secret)) {
+      logger.info("Unable to verify header");
+      
       Fault fault = new Fault(new SecurityException("Unable to verify header"));
-      fault.setStatusCode(401);
+      fault.setStatusCode(401); // access denied
       throw fault;
     }
     

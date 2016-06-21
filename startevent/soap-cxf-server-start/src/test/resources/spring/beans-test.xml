@@ -22,6 +22,7 @@
 		<jaxws:inInterceptors>
 			<ref bean="logInInterceptor" />
 		</jaxws:inInterceptors>
+		
 		<jaxws:outInterceptors>
 			<ref bean="logOutInterceptor" />
 		</jaxws:outInterceptors>		

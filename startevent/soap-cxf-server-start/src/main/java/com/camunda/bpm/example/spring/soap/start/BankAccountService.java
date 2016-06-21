@@ -16,7 +16,6 @@ import org.camunda.bpm.engine.repository.ProcessDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 import com.camunda.bpm.example.spring.soap.start.v1.BankAccountServicePortType;
 import com.camunda.bpm.example.spring.soap.start.v1.BankRequestHeader;

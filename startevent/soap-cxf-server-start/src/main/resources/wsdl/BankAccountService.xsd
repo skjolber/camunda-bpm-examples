@@ -4,7 +4,7 @@
 	xmlns:tns="http://start.soap.spring.example.bpm.camunda.com/v1" elementFormDefault="qualified">
 
 	<annotation>
-		<documentation>Example of web service</documentation>
+		<documentation>Example of web service.</documentation>
 	</annotation>
 
 	<element name="setAccountNameRequest">
@@ -12,16 +12,12 @@
 			<sequence>
 				<element name="accountNumber" type="string">
                     <annotation>
-                        <documentation>
-                            Account number
-                        </documentation>
+                        <documentation>Account number.</documentation>
                     </annotation>				
 				</element>
 				<element name="accountName" type="string">
                     <annotation>
-                        <documentation>
-                            Account name to set
-                        </documentation>
+                        <documentation>Account name to set.</documentation>
                     </annotation>				
 				</element>
 			</sequence>
@@ -33,9 +29,7 @@
 			<sequence>
 				<element name="status" type="tns:statusType" >
                     <annotation>
-                        <documentation>
-                            Result 
-                        </documentation>
+                        <documentation>Response status.</documentation>
                     </annotation>				
 				</element>
 			</sequence>
@@ -44,13 +38,13 @@
 
     <element name="invalidValueException" >
         <annotation>
-            <documentation>Invalid value</documentation>
+            <documentation>Invalid value.</documentation>
         </annotation>
         <complexType>
             <sequence>
                 <element name="name" type="string">
 					<annotation>
-						<documentation>Name of offending field</documentation>
+						<documentation>Name of offending field.</documentation>
 					</annotation>
                 </element>
                 <element name="message" type="string"/>
@@ -63,9 +57,7 @@
 			<sequence>
 				<element name="secret" type="string">
                     <annotation>
-                        <documentation>
-                            Secret token 
-                        </documentation>
+                        <documentation>Secret token.</documentation>
                     </annotation>				
 				</element>
 			</sequence>
@@ -79,12 +71,12 @@
         <restriction base="string">
             <enumeration value="success">
                 <annotation>
-                    <documentation>Name was successfully set</documentation>
+                    <documentation>Name was successfully set.</documentation>
                 </annotation>
             </enumeration>
             <enumeration value="failure">
                 <annotation>
-                    <documentation>Failed to set name</documentation>
+                    <documentation>Failed to set name.</documentation>
                 </annotation>
             </enumeration>
         </restriction>
