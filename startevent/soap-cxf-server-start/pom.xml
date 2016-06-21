@@ -31,6 +31,7 @@
 
 		<!-- tools -->
 		<build-helper-maven-plugin.version>1.9.1</build-helper-maven-plugin.version>
+		<maven-war-plugin.version>2.6</maven-war-plugin.version>
 	</properties>
 
 	<!-- import camunda BOM to ensure correct versions of camunda projects -->
@@ -242,7 +243,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-
+				<version>${maven-war-plugin.version}</version>
 				<configuration>
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 				</configuration>
