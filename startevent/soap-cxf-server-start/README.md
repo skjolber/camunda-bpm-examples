@@ -4,7 +4,7 @@ This example demonstrates how to start a process via a SOAP webservice-server ge
 
 ![Example Process][png]
 
-The example BPMN 2.0 process is triggered by a SOAP call. The SOAP service starts the process by submitting a start form.
+The example BPMN 2.0 process is triggered by a SOAP call. The SOAP webservice-server starts the process by submitting a start form.
 
 # Overview
 
@@ -23,7 +23,7 @@ The webservice context is loaded from [beans.xml][beans], including two services
  * `BankService` - spring service, performing some logging. i.e. dummy service.
  
 The `BankAccountService` endpoint is secured in two ways
- * Basic Authentication
+ * [Basic Authentication][basicauth]
  * SOAP header containing secret value
  
 The BPMN 2.0 process is started with two variables: 
@@ -35,7 +35,6 @@ A custom [validator] makes sure the `accountNumber` value consists only of digit
 The SOAP request consists of a `SetAccountNameRequest` body and `BankRequestHeader` header. It starts the process using `FormService.submitStartForm(..)`.
 
 As the process service task executes, it invokes `setAccountName(..)` on the `BankService` Spring service, performing a logging statement.
-
 
 ## Form validation exceptions handling via SOAP Faults
 The `BankAccountService` service translates start node form validation exceptions to SOAP faults. The SOAP fault contains information on which field failed to validate. 
@@ -58,3 +57,4 @@ The `BankAccountService` service translates start node form validation exception
 [bankService]: src/main/java/com/camunda/bpm/example/spring/soap/start/BankService.java
 [wsdl-localhost]: http://localhost:8080/soap-cxf-server-start/services/bankcustomer?wsdl
 [validator]: src/main/java/com/camunda/bpm/example/spring/soap/start/validator/AccountNumberFormFieldValidator.java
+[basicauth]: https://en.wikipedia.org/wiki/Basic_access_authentication

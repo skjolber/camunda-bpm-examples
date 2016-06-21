@@ -38,7 +38,7 @@
         <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
     </bean>
     
-    <bean id="bankAccountServiceApplication1" depends-on="processEngine" class="org.camunda.bpm.engine.spring.application.SpringProcessApplication" />
+    <bean id="bankAccountServiceApplication" depends-on="processEngine" class="org.camunda.bpm.engine.spring.application.SpringProcessApplication" />
     
 	<import resource="classpath:spring/engine.xml"/>
 
