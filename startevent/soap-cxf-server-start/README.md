@@ -27,8 +27,8 @@ The `BankAccountService` endpoint is secured in two ways
  * SOAP header containing secret value
  
 The BPMN 2.0 process is started with two variables: 
- * `accountNumber` - String value, and
- * `accountName` - the customer number to look up.
+ * `accountNumber` - account number targeted by the operation
+ * `accountName` - name which is to be set on the account
 
 A custom [validator] makes sure the `accountNumber` value consists only of digits.
 
